@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "devsense.composer-php-vscode",
+        "mikestead.dotenv",
+        "donjayamanne.git-extension-pack",
+        "ecmel.vscode-html-css",
+        "devsense.phptools-vscode",
+        "phproberto.vscode-php-getters-setters",
+        "duboiss.sf-pack"
+    ]
+}
