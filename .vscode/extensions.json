@@ -3,9 +3,18 @@
         "devsense.composer-php-vscode",
         "mikestead.dotenv",
         "donjayamanne.git-extension-pack",
-        "ecmel.vscode-html-css",
         "devsense.phptools-vscode",
-        "phproberto.vscode-php-getters-setters",
-        "duboiss.sf-pack"
+        "duboiss.sf-pack",
+        "thenouillet.symfony-vscode",
+        "ecmel.vscode-html-css",
+        "christian-kohler.path-intellisense",
+        "xdebug.php-pack",
+        "mehedidracula.php-namespace-resolver",
+        "devsense.profiler-php-vscode",
+        "esbenp.prettier-vscode",
+        "nadim-vscode.symfony-code-snippets",
+        "tal7aouy.theme",
+        "wayou.vscode-todo-highlight",
+        "bajdzis.vscode-twig-pack"
     ]
 }
