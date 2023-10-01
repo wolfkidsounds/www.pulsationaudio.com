@@ -11,7 +11,6 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.16",
         "easycorp/easyadmin-bundle": "^4.7",
-        "knplabs/knp-menu-bundle": "^3.2",
         "nelmio/security-bundle": "^3.0",
         "paragonie/sodium_compat": "^1.20",
         "phpdocumentor/reflection-docblock": "^5.3",
