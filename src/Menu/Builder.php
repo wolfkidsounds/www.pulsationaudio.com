@@ -17,7 +17,7 @@ class MenuBuilder
     public function createMainMenu(RequestStack $requestStack)
     {
         $menu = $this->factory->createItem('root');
-        $menu->addChild('Home', ['route' => 'app_main']);
+        $menu->addChild('Home', ['route' => 'app_index']);
 
         return $menu;
     }
