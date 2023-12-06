@@ -1,0 +1,5 @@
+.content {
+    background:blue;
+    margin-left:250px;
+    width:calc(100vw - 250px);
+}
