@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class MainController extends AbstractController
+class SoundController extends AbstractController
 {
-    #[Route('/', name: 'app_index')]
+    #[Route('/sound', name: 'app_sound')]
     public function index(): Response
     {
-        return $this->render('index.html.twig', [
-            'controller_name' => 'MainController',
+        return $this->render('pages/sound/index.html.twig', [
+            'controller_name' => 'SoundController',
         ]);
     }
 }
