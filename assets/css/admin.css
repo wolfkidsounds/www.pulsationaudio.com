@@ -1,0 +1,6 @@
+:root {
+    --icon-color:var(--dropdown-settings-icon-color);
+    --font-color:var(--sidebar-menu-color);
+}
+
+@import './admin/media-manager.css';
