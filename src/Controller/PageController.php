@@ -15,11 +15,10 @@ class PageController extends AbstractController
     public function content(string $slug, PageRepository $pageRepository): Response
     {
         $page = $pageRepository->findOneBy(['slug' => $slug]);
-        $category = $page->getCategory();
         $title = $page->getTitle();
         $content = $page;
 
-        $template = strtolower($page->getTemplate()->getName()) . '.html.twig';
+        $template = strtolower($page->getSlug()) . '.html.twig';
 
         return $this->render('page/' . $template, [
             'title' => $title,
