@@ -8,6 +8,7 @@ use App\Entity\Type;
 use App\Entity\User;
 use App\Entity\Content;
 use App\Entity\Category;
+use App\Entity\Options;
 use App\Entity\Template;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -52,10 +53,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToRoute('Media', 'fas fa-icons', 'media.index');
 
         yield MenuItem::section('Settings');
-        yield MenuItem::linkToCrud('Type', 'fas fa-list-ol', Type::class);
-        yield MenuItem::linkToCrud('Category', 'fas fa-list-ul', Category::class);
-        yield MenuItem::linkToCrud('Tag', 'fas fa-tag', Tag::class);
-        yield MenuItem::linkToCrud('Template', 'far fa-file', Template::class);
+        yield MenuItem::linkToCrud('Types', 'fas fa-list-ol', Type::class);
+        yield MenuItem::linkToCrud('Categories', 'fas fa-list-ul', Category::class);
+        yield MenuItem::linkToCrud('Options', 'fas fa-list-ul', Options::class);
+        yield MenuItem::linkToCrud('Tags', 'fas fa-tag', Tag::class);
+        yield MenuItem::linkToCrud('Templates', 'far fa-file', Template::class);
 
         yield MenuItem::section('System');
         yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
