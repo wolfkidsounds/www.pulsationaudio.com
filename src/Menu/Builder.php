@@ -3,34 +3,55 @@
 namespace App\Menu;
 
 use Knp\Menu\FactoryInterface;
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class MenuBuilder
 {
     private $factory;
+    private $categoryRepository;
 
-    public function __construct(FactoryInterface $factory)
+    public function __construct( FactoryInterface $factory, CategoryRepository $categoryRepository)
     {
         $this->factory = $factory;
+        $this->categoryRepository = $categoryRepository;
     }
 
     public function createMainMenu(RequestStack $requestStack)
     {
         $menu = $this->factory->createItem('root');
-        $menu->addChild('Portfolio', ['route' => 'app_index']);
-        $menu->addChild('Projects', ['route' => 'app_index']);
-        $menu->addChild('div_1', ['divider' => true, 'extras' => ['divider' => true]]);
-        $menu->addChild('Mastering', ['route' => 'app_index']);
-        $menu->addChild('Music', ['route' => 'app_index']);
-        $menu->addChild('Sound Design', ['route' => 'app_index']);
-        $menu->addChild('div_2', ['divider' => true, 'extras' => ['divider' => true]]);
-        $menu->addChild('Label', ['route' => 'app_index']);
-        $menu->addChild('Web', ['route' => 'app_index']);
-        $menu->addChild('div_3', ['divider' => true, 'extras' => ['divider' => true]]);
-        $menu->addChild('Samples', ['route' => 'app_index']);
-        $menu->addChild('div_4', ['divider' => true, 'extras' => ['divider' => true]]);
-        $menu->addChild('About', ['route' => 'app_index']);
-        $menu->addChild('Contact', ['route' => 'app_index']);
+        $items = $this->categoryRepository->findBy([], ['OrderNr' => 'ASC']);
+
+        foreach ($items as $item) {
+
+            if ($item->getType() == 'Content') {
+                $menu->addChild($item->getName(), [
+                    'route' => 'app_content',
+                    'routeParameters' => [
+                        'slug' => $item->getSlug(),
+                    ]
+                ]);
+            }
+
+            if ($item->getType() == 'Page') {
+                $menu->addChild($item->getName(), [
+                    'route' => 'app_page',
+                    'routeParameters' => [
+                        'slug' => $item->getSlug(),
+                    ]
+                ]);
+            }
+
+            if ($item->getType() == 'Seperator') {
+                $menu->addChild('divider_' . $item->getOrderNr(), [
+                    'divider' => true, 
+                    'extras' => [
+                        'divider' => true
+                    ]
+                ]);
+            }
+
+        }
 
         return $menu;
     }
