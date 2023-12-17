@@ -31,3 +31,6 @@ config/secrets/dev/dev.decrypt.private.php
 ###> liip/imagine-bundle ###
 /public/media/cache/
 ###< liip/imagine-bundle ###
+
+/public/uploads/*
+/public/uploads/
