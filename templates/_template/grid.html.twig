@@ -3,6 +3,28 @@
 {% block title %}{{parent()}} | {{title|upper}}{% endblock %}
 
 {% block body %}
-    <div class="row">
+    <div class="row row-cols-6">
+        {% if posts|length > 0 %}
+            {% for post in posts %}
+                <div class="post-wrapper col">
 
+                {% if post.Url is defined %}
+                    <a class="grid-item" href="{{ post.Url }}">
+                {% else %}
+                    <div class="grid-item">
+                {% endif %}
+
+                <div class="post-content"> {{ post.Title }}</div>
+
+
+                {% if post.Url is defined %}
+                    </a>
+                {% else %}
+                    </div>
+                {% endif %}
+
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock %}

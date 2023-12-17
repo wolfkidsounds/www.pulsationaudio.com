@@ -82,7 +82,7 @@
 
 {% block linkElement %}
 {% import _self as knp_menu %}
-    <a class="nav-link m-0 p-1 w-100 {%- if matcher.isCurrent(item) %} active {% endif %}" href="{{ item.uri }}" data-balloon-pos="right" aria-label="{{ block('label') }}" data-bs-original-title="{{ block('label') }}" {{ knp_menu.attributes(item.linkAttributes) }}>
+    <a class="nav-link m-0 mb-1 p-1 px-2 w-100 {%- if matcher.isCurrent(item) %} active {% endif %}" href="{{ item.uri }}" data-balloon-pos="right" aria-label="{{ block('label') }}" data-bs-original-title="{{ block('label') }}" {{ knp_menu.attributes(item.linkAttributes) }}>
         {% if item.extras.icon is defined %}
             <i class="{{ item.extras.icon }}"></i>
         {% else %}
