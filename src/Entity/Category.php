@@ -38,14 +38,10 @@ class Category
     #[ORM\OneToMany(mappedBy: 'Category', targetEntity: Content::class)]
     private Collection $Contents;
 
-    #[ORM\OneToMany(mappedBy: 'Category', targetEntity: Page::class)]
-    private Collection $Pages;
-
     public function __construct()
     {
         $this->Tags = new ArrayCollection();
         $this->Contents = new ArrayCollection();
-        $this->Pages = new ArrayCollection();
     }
 
     public function __toString()
@@ -172,36 +168,6 @@ class Category
             // set the owning side to null (unless already changed)
             if ($content->getCategory() === $this) {
                 $content->setCategory(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Page>
-     */
-    public function getPages(): Collection
-    {
-        return $this->Pages;
-    }
-
-    public function addPage(Page $page): static
-    {
-        if (!$this->Pages->contains($page)) {
-            $this->Pages->add($page);
-            $page->setCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removePage(Page $page): static
-    {
-        if ($this->Pages->removeElement($page)) {
-            // set the owning side to null (unless already changed)
-            if ($page->getCategory() === $this) {
-                $page->setCategory(null);
             }
         }
 

@@ -16,12 +16,8 @@ class Page
     #[ORM\Column(length: 255)]
     private ?string $Title = null;
 
-    #[ORM\ManyToOne(inversedBy: 'Pages')]
-    private ?Category $Category = null;
-
-    #[ORM\ManyToOne(inversedBy: 'Pages')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Template $Template = null;
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
 
     public function getId(): ?int
     {
@@ -40,26 +36,14 @@ class Page
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getSlug(): ?string
     {
-        return $this->Category;
+        return $this->slug;
     }
 
-    public function setCategory(?Category $Category): static
+    public function setSlug(string $slug): static
     {
-        $this->Category = $Category;
-
-        return $this;
-    }
-
-    public function getTemplate(): ?Template
-    {
-        return $this->Template;
-    }
-
-    public function setTemplate(?Template $Template): static
-    {
-        $this->Template = $Template;
+        $this->slug = $slug;
 
         return $this;
     }

@@ -24,13 +24,9 @@ class Template
     #[ORM\OneToMany(mappedBy: 'Template', targetEntity: Category::class)]
     private Collection $Templates;
 
-    #[ORM\OneToMany(mappedBy: 'Template', targetEntity: Page::class)]
-    private Collection $Pages;
-
     public function __construct()
     {
         $this->Templates = new ArrayCollection();
-        $this->Pages = new ArrayCollection();
     }
 
     public function __toString()
@@ -91,36 +87,6 @@ class Template
             // set the owning side to null (unless already changed)
             if ($template->getTemplate() === $this) {
                 $template->setTemplate(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Page>
-     */
-    public function getPages(): Collection
-    {
-        return $this->Pages;
-    }
-
-    public function addPage(Page $page): static
-    {
-        if (!$this->Pages->contains($page)) {
-            $this->Pages->add($page);
-            $page->setTemplate($this);
-        }
-
-        return $this;
-    }
-
-    public function removePage(Page $page): static
-    {
-        if ($this->Pages->removeElement($page)) {
-            // set the owning side to null (unless already changed)
-            if ($page->getTemplate() === $this) {
-                $page->setTemplate(null);
             }
         }
 

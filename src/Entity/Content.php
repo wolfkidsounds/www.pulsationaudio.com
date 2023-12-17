@@ -25,11 +25,17 @@ class Content
     #[ORM\Column(length: 255)]
     private ?string $Title = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $Thumbnail = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $Description = null;
+
+    #[ORM\ManyToOne(inversedBy: 'Contents')]
+    private ?Options $Options = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Url = null;
 
     public function __construct()
     {
@@ -109,6 +115,30 @@ class Content
     public function setDescription(?string $Description): static
     {
         $this->Description = $Description;
+
+        return $this;
+    }
+
+    public function getOptions(): ?Options
+    {
+        return $this->Options;
+    }
+
+    public function setOptions(?Options $Options): static
+    {
+        $this->Options = $Options;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->Url;
+    }
+
+    public function setUrl(?string $Url): static
+    {
+        $this->Url = $Url;
 
         return $this;
     }
