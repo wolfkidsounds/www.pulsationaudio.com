@@ -12,10 +12,10 @@ flysystem:
     medias.storage:
       adapter: 'local'
       options:
-        directory: '%kernel.project_dir%/var/storage/medias'
+        directory: '%kernel.project_dir%/public/uploads/media'
 
 easy_media:
   storage_name: medias.storage
   media_entity: App\Entity\EasyMedia\Media
   folder_entity: App\Entity\EasyMedia\Folder
-
+  base_url: '/uploads/media'
