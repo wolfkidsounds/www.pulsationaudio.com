@@ -3,8 +3,8 @@
 {% block list %}
     {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
         {% import _self as knp_menu %}
-            <div class="nav">
-                <ul class="navbar-nav side-menu-nav justify-content-start" {{ knp_menu.attributes(listAttributes) }}>
+            <div class="nav w-100">
+                <ul class="navbar-nav side-menu-nav justify-content-start w-100" {{ knp_menu.attributes(listAttributes) }}>
                     {{ block('children') }}
                 </ul>
             </div>
@@ -59,7 +59,7 @@
             {% if item.extras.divider is defined %}
                 <li class="divider seperator pe-none mb-3"><hr class="dropdown-divider"></li>
             {% else %}
-            <li {{ knp_menu.attributes(attributes) }}>
+            <li class="mb-0 p-0 w-100" {{ knp_menu.attributes(attributes) }}>
 
                 {%- if item.uri is not empty and (not matcher.isCurrent(item) or options.currentAsLink) %}
 
@@ -82,7 +82,7 @@
 
 {% block linkElement %}
 {% import _self as knp_menu %}
-    <a class="nav-link {%- if matcher.isCurrent(item) %} active {% endif %}" href="{{ item.uri }}" data-balloon-pos="right" aria-label="{{ block('label') }}" data-bs-original-title="{{ block('label') }}" {{ knp_menu.attributes(item.linkAttributes) }}>
+    <a class="nav-link m-0 p-1 w-100 {%- if matcher.isCurrent(item) %} active {% endif %}" href="{{ item.uri }}" data-balloon-pos="right" aria-label="{{ block('label') }}" data-bs-original-title="{{ block('label') }}" {{ knp_menu.attributes(item.linkAttributes) }}>
         {% if item.extras.icon is defined %}
             <i class="{{ item.extras.icon }}"></i>
         {% else %}
