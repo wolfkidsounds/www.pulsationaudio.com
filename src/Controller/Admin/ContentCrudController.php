@@ -27,7 +27,11 @@ class ContentCrudController extends AbstractCrudController
         
         yield FormField::addRow();
         yield AssociationField::new('Tags')
-        ->setColumns(6);
+        ->setColumns(3)
+        ->hideOnIndex();
+        yield AssociationField::new('Options', 'Display On')
+        ->setColumns(3)
+        ->hideOnIndex();
 
         yield FormField::addRow();
         yield EasyMediaField::new('Thumbnail')
@@ -35,9 +39,7 @@ class ContentCrudController extends AbstractCrudController
 
         yield FormField::addRow();
         yield TextEditorField::new('Description')
-        ->setColumns(6);
-
-        
-
+        ->setColumns(6)
+        ->hideOnIndex();
     }
 }
