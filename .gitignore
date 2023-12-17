@@ -28,3 +28,6 @@ yarn-error.log
 config/secrets/dev/dev.decrypt.private.php
 /data/*
 /data/
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###
