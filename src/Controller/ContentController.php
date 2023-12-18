@@ -40,10 +40,10 @@ class ContentController extends AbstractController
         ]);
     }
 
-    #[Route('/{slug}/{id]', name: 'app_content_single')]
+    #[Route('/{slug}/{id}', name: 'app_content_single')]
     public function single(string $slug, int $id, CategoryRepository $categoryRepository, ContentRepository $contentRepository): Response
     {
-        $category = $categoryRepository->findOneBy(['Category' => $slug]);
+        $category = $categoryRepository->findOneBy(['slug' => $slug]);
         $post = $contentRepository->findOneBy(['id' => $id]);
         $title = $post->getTitle();
 
