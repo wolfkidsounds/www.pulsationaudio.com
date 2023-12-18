@@ -1,28 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends '_template/_template.html.twig' %}
 
-{% block title %}{{parent()}} | {{title|upper}}{% endblock %}
-
-{% block body %}
+{% block content %}
     <div class="row row-cols-6">
         {% if posts|length > 0 %}
+
             {% for post in posts %}
-                <div class="post-wrapper col">
+                <div class="p-2 col transition overflow-hidden">
 
-                {% if post.Url is defined %}
-                    <a class="grid-item" href="{{ post.Url }}">
+                {% if post.Url %}
+                    <a class="grid-item d-block w-100 h-100 rounded" href="{{ post.Url }}">
                 {% else %}
-                    <div class="grid-item">
+                    <a class="grid-item d-block w-100 h-100 rounded" href="{{ path('app_content_single', { 'slug': post.Category.slug, 'id': post.id }) }}">
                 {% endif %}
-
-                <div class="post-content"> {{ post.Title }}</div>
-
-
-                {% if post.Url is defined %}
+                        <div class="post-content position-relative w-100 h-100">
+                            <div class="overlay p-2 position-absolute w-100 rounded text-wrap bottom-0">{{ post.Title }}</div>
+                            {% if post.Thumbnail %}
+                                <img class="w-100 blurry-load rounded" src="{{ easy_media_path(post.Thumbnail)|imagine_filter('small') }}" data-large="{{ easy_media_path(post.Thumbnail)|imagine_filter('thumbnail') }}">
+                            {% else %}
+                                <img class="w-100 blurry-load rounded" src="{{ asset('build/images/placeholder.png')|imagine_filter('small') }}" data-large="{{ asset('build/images/placeholder.png')|imagine_filter('thumbnail') }}">
+                            {% endif %}
+                        </div>
                     </a>
-                {% else %}
-                    </div>
-                {% endif %}
-
                 </div>
             {% endfor %}
         {% endif %}
