@@ -1,5 +1,4 @@
-// Import Controllers
-import './bootstrap.js';
+// Import Controllers
 
 // Import Node Modules JS
 import '@popperjs/core';
