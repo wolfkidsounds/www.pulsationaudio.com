@@ -1,0 +1,9 @@
+.grid-item {
+    background:rgba(0,0,0,.2);
+    filter:grayscale(.9);
+    transition: all .5s ease;
+}
+
+.grid-item:hover {
+    filter:grayscale(0);    
+}
