@@ -1,4 +1,6 @@
 @import './app/root.css';
 
+@import './app/grid.css';
+
 @import './app/sidebar.css';
 @import './app/content.css';
