@@ -26,21 +26,6 @@ class MenuBuilder
         $items = $this->categoryRepository->findBy([], ['OrderNr' => 'ASC']);
         $pages = $this->pageRepository->findAll();
 
-        $menu->addChild('Portfolio', [
-            'route' => 'app_content_portfolio'
-        ]);
-
-        $menu->addChild('Projects', [
-            'route' => 'app_content_projects'
-        ]);
-
-        $menu->addChild('divider_custom_1', [
-            'divider' => true, 
-            'extras' => [
-                'divider' => true
-            ]
-        ]);
-
         foreach ($items as $item) {
             if ($item->getType() == 'Seperator') {
                 $menu->addChild('divider_' . $item->getOrderNr(), [
