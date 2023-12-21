@@ -70,8 +70,8 @@ jobs:
       run: |
         composer dump-env prod
 
-    - name: Database Migrations
-      run: php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing
+    # - name: Database Migrations
+    #   run: php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing
 
     - name: Clear Cache, Install Assets, Warm Up Cache
       run: |
