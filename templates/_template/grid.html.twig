@@ -6,14 +6,11 @@
 
             {% for post in posts %}
                 <div class="p-2 col transition overflow-hidden">
-
-                {% if post.Url %}
-                    <a class="grid-item d-block w-100 h-100 rounded" href="{{ post.Url }}">
-                {% else %}
-                    <a class="grid-item d-block w-100 h-100 rounded" href="{{ path('app_content_single', { 'slug': post.Category.slug, 'id': post.id }) }}">
-                {% endif %}
+                    <a class="grid-item d-block w-100 h-100 rounded" href="{{ post.Url }}" target="_blank">
                         <div class="post-content position-relative w-100 h-100">
-                            {# <div class="overlay p-2 position-absolute w-100 rounded text-wrap bottom-0">{{ post.Title }}</div> #}
+                            <div class="overlay p-3 position-absolute w-100 rounded text-wrap text-white bottom-0">
+                                <div class="overlay-text">{{ post.Title }}</div>
+                            </div>
                             {% if post.Thumbnail %}
                                 <img class="w-100 blurry-load rounded" src="{{ easy_media_path(post.Thumbnail)|imagine_filter('small') }}" data-large="{{ easy_media_path(post.Thumbnail)|imagine_filter('thumbnail') }}">
                             {% else %}
@@ -23,6 +20,7 @@
                     </a>
                 </div>
             {% endfor %}
+
         {% endif %}
     </div>
 {% endblock %}
