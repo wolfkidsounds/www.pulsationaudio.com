@@ -1,0 +1,1 @@
+[![Staging Deployment](https://github.com/wolfkidsounds/pulsationaudio/actions/workflows/staging.yml/badge.svg?branch=staging)](https://github.com/wolfkidsounds/pulsationaudio/actions/workflows/staging.yml)
