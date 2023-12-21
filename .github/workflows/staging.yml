@@ -36,7 +36,7 @@ jobs:
       run: |
         echo "APP_ENV=prod" >> $GITHUB_ENV
         echo "APP_DEBUG=1" >> $GITHUB_ENV
-        echo "DATABASE_URL=${{ secrets.STAGING_DATABASE_URL }}" >> $GITHUB_ENV
+        echo "DATABASE_URL='${{ secrets.STAGING_DATABASE_URL }}'" >> $GITHUB_ENV
         echo "MESSENGER_TRANSPORT_DSN=${{ secrets.MESSENGER_TRANSPORT_DSN }}" >> $GITHUB_ENV
         echo "MAILER_DSN=null://null" >> $GITHUB_ENV
         echo "APP_SECRET=${{ secrets.APP_STAGING_SECRET }}" >> $GITHUB_ENV
