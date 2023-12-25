@@ -9,9 +9,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[Route('/page')]
 class PageController extends AbstractController
 {
-    #[Route('/page/{slug}', name: 'app_page')]
+    #[Route('/{slug}', name: 'app_page')]
     public function content(string $slug, PageRepository $pageRepository): Response
     {
         $page = $pageRepository->findOneBy(['slug' => $slug]);

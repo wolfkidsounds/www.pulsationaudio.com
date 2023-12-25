@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Repository\ContentRepository;
-use App\Repository\OptionsRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
