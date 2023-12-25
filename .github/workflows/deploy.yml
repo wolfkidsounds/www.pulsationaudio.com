@@ -127,6 +127,8 @@ jobs:
               **/public/maintenance.php
               **/var/cache/dev/**
               **/var/log/**
+              **/.env
+              **/.env.test
 
     - name: Disable Maintenance Mode (Upload Public Index PHP)
       uses: bayssmekanique/action-simple-file-upload@v2
