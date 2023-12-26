@@ -40,5 +40,11 @@ jobs:
     - name: Install Composer
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --no-dev --optimize-autoloader
 
+    - name: Setup PHP 7.4
+      uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
+      with:
+        php-version: '7.4'
+
     - name: Database Migrations
-      run: php bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing
+      run: php7.4 bin/console doctrine:migrations:migrate --no-interaction --all-or-nothing
+    
