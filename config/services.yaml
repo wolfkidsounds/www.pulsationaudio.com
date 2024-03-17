@@ -25,7 +25,7 @@ services:
 
     # config/services.yaml
     app.menu_builder:
-        class: App\Menu\MenuBuilder
+        class: App\Menu\Builder
         arguments: ["@knp_menu.factory"]
 
     app.main_menu:
