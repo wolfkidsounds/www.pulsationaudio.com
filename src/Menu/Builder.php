@@ -7,7 +7,7 @@ use App\Repository\PageRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class MenuBuilder
+class Builder
 {
     private $factory;
     private $categoryRepository;
