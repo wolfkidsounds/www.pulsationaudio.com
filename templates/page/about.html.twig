@@ -1,1 +1,17 @@
 {% extends '_template/page.html.twig' %}
+
+{% block content %}
+    <div class="d-flex justify-content-start ">
+        <img src="{{ asset('/images/logo/white_small.png') }}">
+    </div>
+    <div class="d-flex justify-content-start align-items-center list-unstyled gap-3 mb-5 ps-5">
+        <li><a href="https://linktr.ee/pulsationaudio"          class="btn btn-lg btn-outline-primary"><i class="fa-solid  fa-tree"></i></a></li>
+        <li><a href="https://www.instagram.com/pulsationaudio"  class="btn btn-lg btn-outline-primary"><i class="fa-brands fa-instagram"></i></a></li>
+        <li><a href="https://www.facebook.com/pulsationaudio"   class="btn btn-lg btn-outline-primary"><i class="fa-brands fa-facebook"></i></a></li>
+        <li><a href="https://soundcloud.com/pulsationaudio"     class="btn btn-lg btn-outline-primary"><i class="fa-brands fa-soundcloud"></i></a></li>
+        <li><a href="https://open.spotify.com/user/1139693437"  class="btn btn-lg btn-outline-primary"><i class="fa-brands fa-spotify"></i></a></li>
+    </div>
+    <div class="ps-5">
+        {{ content.Description|raw }}
+    </div>
+{% endblock %}

@@ -55,8 +55,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Settings');
         yield MenuItem::linkToCrud('Types', 'fas fa-list-ol', Type::class);
         yield MenuItem::linkToCrud('Categories', 'fas fa-list-ul', Category::class);
-        yield MenuItem::linkToCrud('Options', 'fas fa-list-ul', Options::class);
-        yield MenuItem::linkToCrud('Tags', 'fas fa-tag', Tag::class);
         yield MenuItem::linkToCrud('Templates', 'far fa-file', Template::class);
 
         yield MenuItem::section('System');

@@ -1,9 +1,17 @@
 .grid-item {
     background:rgba(0,0,0,.2);
-    filter:grayscale(.9);
+    filter:grayscale(.5);
     transition: all .5s ease;
+    opacity:1;
 }
 
 .grid-item:hover {
-    filter:grayscale(0);    
+    filter:grayscale(0);
+    transform:scale(1.01);
+}
+
+.overlay {
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    opacity:.8;
+    transition: all .5s ease;
 }

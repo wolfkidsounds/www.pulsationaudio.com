@@ -21,13 +21,9 @@ class Type
     #[ORM\OneToMany(mappedBy: 'Type', targetEntity: Category::class)]
     private Collection $Categories;
 
-    #[ORM\OneToMany(mappedBy: 'Type', targetEntity: Tag::class)]
-    private Collection $Tags;
-
     public function __construct()
     {
         $this->Categories = new ArrayCollection();
-        $this->Tags = new ArrayCollection();
     }
 
     public function __toString()
@@ -76,36 +72,6 @@ class Type
             // set the owning side to null (unless already changed)
             if ($category->getType() === $this) {
                 $category->setType(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Tag>
-     */
-    public function getTags(): Collection
-    {
-        return $this->Tags;
-    }
-
-    public function addTag(Tag $tag): static
-    {
-        if (!$this->Tags->contains($tag)) {
-            $this->Tags->add($tag);
-            $tag->setType($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTag(Tag $tag): static
-    {
-        if ($this->Tags->removeElement($tag)) {
-            // set the owning side to null (unless already changed)
-            if ($tag->getType() === $this) {
-                $tag->setType(null);
             }
         }
 

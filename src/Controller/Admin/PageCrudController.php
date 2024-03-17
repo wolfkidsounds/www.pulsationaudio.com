@@ -20,5 +20,6 @@ class PageCrudController extends AbstractCrudController
     {
         yield TextField::new('Title');
         yield TextField::new('slug');
+        yield TextEditorField::new('Description', 'Description');
     }
 }

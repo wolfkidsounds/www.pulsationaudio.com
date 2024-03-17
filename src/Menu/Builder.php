@@ -7,7 +7,7 @@ use App\Repository\PageRepository;
 use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class MenuBuilder
+class Builder
 {
     private $factory;
     private $categoryRepository;
@@ -25,21 +25,6 @@ class MenuBuilder
         $menu = $this->factory->createItem('root');
         $items = $this->categoryRepository->findBy([], ['OrderNr' => 'ASC']);
         $pages = $this->pageRepository->findAll();
-
-        $menu->addChild('Portfolio', [
-            'route' => 'app_content_portfolio'
-        ]);
-
-        $menu->addChild('Projects', [
-            'route' => 'app_content_projects'
-        ]);
-
-        $menu->addChild('divider_custom_1', [
-            'divider' => true, 
-            'extras' => [
-                'divider' => true
-            ]
-        ]);
 
         foreach ($items as $item) {
             if ($item->getType() == 'Seperator') {

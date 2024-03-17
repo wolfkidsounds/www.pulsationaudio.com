@@ -1,5 +1,8 @@
 {% extends '_template/_template.html.twig' %}
 
 {% block content %}
-
+    <div class="position-relative item-content">
+        <div class="background-underlay w-100 h-100 position-absolute"><img class="w-100" src="{{ easy_media_path(post.Thumbnail) }}"></div>
+        {% block single %}{% endblock %}
+    </div>
 {% endblock %}

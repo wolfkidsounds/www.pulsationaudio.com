@@ -25,9 +25,6 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
-    #[ORM\OneToMany(mappedBy: 'Category', targetEntity: Tag::class)]
-    private Collection $Tags;
-
     #[ORM\ManyToOne(inversedBy: 'Templates')]
     #[ORM\JoinColumn(nullable: true)]
     private ?Template $Template = null;
@@ -40,7 +37,6 @@ class Category
 
     public function __construct()
     {
-        $this->Tags = new ArrayCollection();
         $this->Contents = new ArrayCollection();
     }
 
@@ -86,36 +82,6 @@ class Category
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Tag>
-     */
-    public function getTags(): Collection
-    {
-        return $this->Tags;
-    }
-
-    public function addTag(Tag $tag): static
-    {
-        if (!$this->Tags->contains($tag)) {
-            $this->Tags->add($tag);
-            $tag->setCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTag(Tag $tag): static
-    {
-        if ($this->Tags->removeElement($tag)) {
-            // set the owning side to null (unless already changed)
-            if ($tag->getCategory() === $this) {
-                $tag->setCategory(null);
-            }
-        }
 
         return $this;
     }

@@ -10,6 +10,7 @@ use Adeliom\EasyMediaBundle\Admin\Field\EasyMediaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 
 class ContentCrudController extends AbstractCrudController
 {
@@ -20,26 +21,17 @@ class ContentCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield IdField::new('Title')
+        yield TextField::new('Title')
         ->setColumns(3);
         yield AssociationField::new('Category')
-        ->setColumns(3);
-        
+        ->setColumns(3); 
+
         yield FormField::addRow();
-        yield AssociationField::new('Tags')
-        ->setColumns(3)
-        ->hideOnIndex();
-        yield AssociationField::new('Options', 'Display On')
-        ->setColumns(3)
-        ->hideOnIndex();
+        yield UrlField::new('Url')
+        ->setColumns(6);
 
         yield FormField::addRow();
         yield EasyMediaField::new('Thumbnail')
         ->setColumns(6);
-
-        yield FormField::addRow();
-        yield TextEditorField::new('Description')
-        ->setColumns(6)
-        ->hideOnIndex();
     }
 }
