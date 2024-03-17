@@ -1,2 +1,1 @@
 [![Staging Deployment](https://github.com/wolfkidsounds/pulsationaudio/actions/workflows/staging.yml/badge.svg?branch=staging)](https://github.com/wolfkidsounds/pulsationaudio/actions/workflows/staging.yml)
-[![Staging Database Migration](https://github.com/wolfkidsounds/pulsationaudio/actions/workflows/staging_migration.yml/badge.svg?branch=staging)](https://github.com/wolfkidsounds/pulsationaudio/actions/workflows/staging_migration.yml)
