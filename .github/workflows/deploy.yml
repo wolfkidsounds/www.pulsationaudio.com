@@ -24,26 +24,22 @@ jobs:
     - name: Set Up Environment Variables
       run: |
         echo "APP_ENV=prod" >> $GITHUB_ENV
-        echo "APP_DEBUG=1" >> $GITHUB_ENV
+        echo "APP_DEBUG=0" >> $GITHUB_ENV
         echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> $GITHUB_ENV
         echo "MESSENGER_TRANSPORT_DSN=${{ secrets.MESSENGER_TRANSPORT_DSN }}" >> $GITHUB_ENV
         echo "MAILER_DSN=null://null" >> $GITHUB_ENV
         echo "APP_SECRET=${{ secrets.APP_SECRET }}" >> $GITHUB_ENV
-        echo "HOST='spur1.media'" >> $GITHUB_ENV
-        echo "FILE_STORAGE_PATH='public/uploads'" >> $GITHUB_ENV
         echo "CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$'" >> $GITHUB_ENV
 
     - name: Dump .env
       run: |
         rm -f .env
         echo "APP_ENV=prod" >> .env
-        echo "APP_DEBUG=1" >> .env
+        echo "APP_DEBUG=0" >> .env
         echo "DATABASE_URL='${{ secrets.DATABASE_URL }}'" >> .env
         echo "MESSENGER_TRANSPORT_DSN=${{ secrets.MESSENGER_TRANSPORT_DSN }}" >> .env
         echo "MAILER_DSN=null://null" >> .env
         echo "APP_SECRET=${{ secrets.APP_SECRET }}" >> .env
-        echo "HOST='spur1.media'" >> .env
-        echo "FILE_STORAGE_PATH='public/uploads'" >> .env
         echo "CORS_ALLOW_ORIGIN='^https?://(localhost|127\.0\.0\.1)(:[0-9]+)?$'" >> .env
 
     - name: Cache Composer packages
