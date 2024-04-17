@@ -18,7 +18,7 @@
     docker_image_name: "library/php"
     docker_image_tag: "8.2"
     execute_commands:
-    - "composer validate"
+    - "composer validate --no-check-publish"
     - "composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist --no-dev --optimize-autoloader"
     setup_commands:
     - "echo \"memory_limit=-1\" >> /usr/local/etc/php/conf.d/buddy.ini"
