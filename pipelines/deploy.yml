@@ -47,3 +47,10 @@
     - "apt-get install -y libzip-dev"
     - "docker-php-ext-install zip"
     shell: "BASH"
+  - action: "npm run build-1"
+    type: "BUILD"
+    docker_image_name: "library/node"
+    docker_image_tag: "20"
+    execute_commands:
+    - "npm run build"
+    shell: "BASH"
