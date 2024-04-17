@@ -11,9 +11,7 @@
     docker_image_name: "library/node"
     docker_image_tag: "18"
     execute_commands:
-    - "npm install --force"
-    - "npm cache clean --force"
-    - "npm run build"
+    - "npm install"
     shell: "BASH"
   - action: "php bin/console assets:install"
     type: "BUILD"
