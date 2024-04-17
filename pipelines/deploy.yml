@@ -6,6 +6,15 @@
   fail_on_prepare_env_warning: true
   resources: "NANO"
   actions:
+  - action: "npm run build"
+    type: "BUILD"
+    docker_image_name: "library/node"
+    docker_image_tag: "18"
+    execute_commands:
+    - "npm install --force"
+    - "npm cache clean --force"
+    - "npm run build"
+    shell: "BASH"
   - action: "php bin/console assets:install"
     type: "BUILD"
     docker_image_name: "library/php"
