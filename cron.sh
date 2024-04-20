@@ -4,7 +4,7 @@
 git pull
 
 # Install PHP dependencies with composer
-composer install
+composer install --no-interaction
 
 # Install Node.js dependencies
 npm install
