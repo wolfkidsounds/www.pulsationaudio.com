@@ -2,5 +2,7 @@
 
 @import './app/grid.css';
 
-@import './app/sidebar.css';
-@import './app/content.css';
+@import './app/offcanvas.css';
+
+/* @import './app/sidebar.css'; */
+/* @import './app/content.css'; */
