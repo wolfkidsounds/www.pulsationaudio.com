@@ -10,6 +10,7 @@ use Adeliom\EasyMediaBundle\Admin\Field\EasyMediaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 
 class ContentCrudController extends AbstractCrudController
@@ -33,5 +34,7 @@ class ContentCrudController extends AbstractCrudController
         yield FormField::addRow();
         yield EasyMediaField::new('Thumbnail')
         ->setColumns(6);
+
+        yield BooleanField::new('active', 'Inactive');
     }
 }
