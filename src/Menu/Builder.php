@@ -51,6 +51,17 @@ class Builder
             ]
         ]);
 
+        $menu->addChild('Hosting', [
+            'route' => 'app_content_hosting',
+        ]);
+
+        $menu->addChild('divider_custom_3', [
+            'divider' => true, 
+            'extras' => [
+                'divider' => true
+            ]
+        ]);
+
         foreach ($pages as $page) {
             $menu->addChild($page->getTitle(), [
                 'route' => 'app_page',
