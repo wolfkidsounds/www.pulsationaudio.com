@@ -5,20 +5,22 @@
         {% if posts|length > 0 %}
 
             {% for post in posts %}
-                <div class="p-2 col transition overflow-hidden">
-                    <a class="grid-item d-block w-100 h-100 rounded" href="{{ post.Url }}" target="_blank">
-                        <div class="post-content position-relative w-100 h-100">
-                            <div class="overlay p-3 position-absolute w-100 rounded text-wrap text-white bottom-0">
-                                <div class="overlay-text">{{ post.Title }}</div>
+                {% if not post.active %}
+                    <div class="p-2 col transition overflow-hidden">
+                        <a class="grid-item d-block w-100 h-100 rounded shadow" href="{{ post.Url }}" target="_blank">
+                            <div class="post-content position-relative w-100 h-100">
+                                <div class="overlay p-3 position-absolute w-100 rounded text-wrap text-white bottom-0">
+                                    <div class="overlay-text">{{ post.Title }}</div>
+                                </div>
+                                {% if post.Thumbnail %}
+                                    <img class="w-100 blurry-load rounded" src="{{ easy_media_path(post.Thumbnail)|imagine_filter('small') }}" data-large="{{ easy_media_path(post.Thumbnail)|imagine_filter('thumbnail') }}">
+                                {% else %}
+                                    <img class="w-100 blurry-load rounded" src="{{ asset('build/images/placeholder.png')|imagine_filter('small') }}" data-large="{{ asset('build/images/placeholder.png')|imagine_filter('thumbnail') }}">
+                                {% endif %}
                             </div>
-                            {% if post.Thumbnail %}
-                                <img class="w-100 blurry-load rounded" src="{{ easy_media_path(post.Thumbnail)|imagine_filter('small') }}" data-large="{{ easy_media_path(post.Thumbnail)|imagine_filter('thumbnail') }}">
-                            {% else %}
-                                <img class="w-100 blurry-load rounded" src="{{ asset('build/images/placeholder.png')|imagine_filter('small') }}" data-large="{{ asset('build/images/placeholder.png')|imagine_filter('thumbnail') }}">
-                            {% endif %}
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                {% endif %}
             {% endfor %}
 
         {% endif %}
