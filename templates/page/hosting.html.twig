@@ -1,0 +1,52 @@
+{% extends '_template/page.html.twig' %}
+
+{% block content %}
+    <div class="container">
+        <div class="p-5 text-center bg-body-tertiary rounded-3">
+            <img src="{{ asset('images/logo/logo.svg') }}" class="bi mt-4 mb-3" width="50%"></img>
+            <h1 class="text-body-emphasis">Web-Development & Hosting</h1>
+            <p class="col-lg-8 mx-auto fs-5 text-muted">
+                We provide individual Hosting solutions, web design and web programming for your project using the 
+                <code>Symfony Framework</code> as well as <code>Live Components</code>, <code>Stimulus</code> and <code>Webpack</code> to craft individual Solutions for your needs.
+            </p>
+            <div class="d-inline-flex gap-2 mb-5">
+                <a href="mailto:eric@pulsationaudio.com" class="d-inline-flex align-items-center btn btn-primary btn-lg px-4 rounded-pill" type="button">
+                    I'm interested
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+                <a href="{{ path('app_content', { slug: 'web' }) }}" class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
+                    View Examples
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container p-3">
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="col">
+                <h3 class="mb-4 display-6 lh-1 fw-bold">Cloudpanel</h3>
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('{{ asset('build/images/cloudpanel.png') }}');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-dark text-shadow-1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h3 class="mb-4 display-6 lh-1 fw-bold">Mailcow</h3>
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('{{ asset('build/images/mailcow.png') }}');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-dark text-shadow-1">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <h3 class="mb-4 display-6 lh-1 fw-bold">SoGo</h3>
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url('{{ asset('build/images/sogo.png') }}');">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-dark text-shadow-1">
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+{% endblock %}
