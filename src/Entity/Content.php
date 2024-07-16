@@ -26,6 +26,9 @@ class Content
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Url = null;
 
+    #[ORM\Column]
+    private ?bool $active = true;
+
     public function __construct()
     {
 
@@ -80,6 +83,18 @@ class Content
     public function setUrl(?string $Url): static
     {
         $this->Url = $Url;
+
+        return $this;
+    }
+
+    public function isActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): static
+    {
+        $this->active = $active;
 
         return $this;
     }
