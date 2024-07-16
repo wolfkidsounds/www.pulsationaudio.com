@@ -11,6 +11,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/content')]
 class ContentController extends AbstractController
 {
+    #[Route('/hosting', name: 'app_content_hosting')]
+    public function hosting(): Response
+    {
+        return $this->render('page/hosting.html.twig', [
+            'title' => 'Hosting',
+            'controller_name' => 'ContentController',
+        ]);
+    }
+
     #[Route('/{slug}', name: 'app_content')]
     public function content(string $slug, CategoryRepository $categoryRepository, ContentRepository $contentRepository): Response
     {
