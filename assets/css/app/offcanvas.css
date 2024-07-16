@@ -1,0 +1,6 @@
+.nav-link:hover,
+.nav-link.active {
+    --bs-navbar-active-color:var(--pa-primary-color);
+    background:var(--pa-background-color-hover);
+    color:var(--pa-primary-color);
+}
